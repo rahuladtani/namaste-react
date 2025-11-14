@@ -1,3 +1,43 @@
-#heading {
-    color: red;
+.restaurents .card {
+  border-radius: 20px;
+  overflow: hidden;
+}
+.restaurents .card img {
+  height: 180px;
+  object-fit: cover;
+}
+.restaurents .card .card-title {
+  font-size: 20px;
+  margin-bottom: 5px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+.restaurents .card p {
+  margin: 0px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.restaurents-skeleton .img {
+  height: 180px;
+  object-fit: cover;
+  background-color: #ddd;
+}
+.restaurents-skeleton .card-title {
+  background-color: #ddd;
+  height: 24px;
+}
+.restaurents-skeleton .p {
+  background-color: #ddd;
+  height: 24px;
+}
+.restaurents-skeleton .btn {
+  background-color: #ddd;
+  height: 37.6px;
 }
