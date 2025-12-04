@@ -1,7 +1,10 @@
 "use client";
 import { useState, useEffect } from "react";
+import { useParams } from "react-router";
 
 const RestaurentDetails = () => {
+  const { resId } = useParams();
+  console.log(resId);
   const [restaurentMenu, setRestaurentMenu] = useState(null);
 
   useEffect(() => {
@@ -9,9 +12,7 @@ const RestaurentDetails = () => {
   }, []);
 
   const fetchData = async () => {
-    const data = await fetch(
-      "https://corsproxy.io/https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=23.2913247&lng=77.3359114&restaurantId=695745"
-    );
+    const data = await fetch(`http://localhost:3000/swiggy/${resId}`);
     const json = await data.json();
     console.log(json);
     setRestaurentMenu(json.data);

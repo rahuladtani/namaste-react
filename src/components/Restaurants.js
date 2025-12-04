@@ -4,28 +4,14 @@ import RestaurentItem from "./RestaurentItem";
 import ResList from "../utils/restaurents";
 import { useState, useEffect } from "react";
 import RestaurentSkeleton from "./RestaurentSkeleton";
+import useFetchRestaurents from "../utils/useFetchRestaurents";
 
 const Restaurants = () => {
-  const [listOfRestaurents, setListOfRestaurents] = useState([]);
-  const [filteredRestaurents, setFilteredRestaurents] = useState([]);
-
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  const fetchData = async () => {
-    const data = await fetch(
-      "https://corsproxy.io/https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.99740&lng=79.00110&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-    );
-    const json = await data.json();
-    console.log(json);
-    setListOfRestaurents(
-      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
-    setFilteredRestaurents(
-      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
-  };
+  const [
+    listOfRestaurents = [],
+    filteredRestaurents = [],
+    setFilteredRestaurents,
+  ] = useFetchRestaurents();
 
   const topRatedRestaurents = listOfRestaurents.filter(
     (res) => res.info.avgRating > 4

@@ -1,9 +1,10 @@
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { resImageURL } from "../utils/constants";
+import { Link } from "react-router";
 
 const RestaurentItem = ({ restaurent }) => {
-  const { name, cuisines, costForTwo, avgRating, cloudinaryImageId, sla } =
+  const { name, cuisines, costForTwo, avgRating, cloudinaryImageId, sla, id } =
     restaurent?.info;
   const { link } = restaurent?.cta;
   return (
@@ -15,9 +16,12 @@ const RestaurentItem = ({ restaurent }) => {
         <p>{costForTwo}</p>
         <p>{avgRating} Rating</p>
         <p>{sla.slaString}</p>
-        <a href={link} className="btn btn-primary w-100 mt-2">
+        <Link
+          to={`/restaurentdetails/${id}`}
+          className="btn btn-primary w-100 mt-2"
+        >
           Book Now
-        </a>
+        </Link>
       </Card.Body>
     </Card>
   );

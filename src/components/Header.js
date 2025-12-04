@@ -6,9 +6,11 @@ import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import { useState } from "react";
 import { Link } from "react-router";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Header = () => {
   const [btnName, setBtnName] = useState("Login");
+  const onlineStatus = useOnlineStatus();
 
   return (
     <>
@@ -53,6 +55,11 @@ const Header = () => {
             >
               {btnName}
             </Button>
+            {onlineStatus === false ? (
+              <span className="badge bg-danger m-0 ms-2">You're offline</span>
+            ) : (
+              <span className="badge bg-success m-0 ms-2">You're online</span>
+            )}
           </Navbar.Collapse>
         </Container>
       </Navbar>
