@@ -30,6 +30,9 @@ const Header = () => {
               <Link to="/about" className="nav-link">
                 About Us
               </Link>
+              <Link to="/grocery" className="nav-link">
+                Grocery
+              </Link>
               <NavDropdown title="Link" id="navbarScrollingDropdown">
                 <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
                 <NavDropdown.Item href="#action4">
