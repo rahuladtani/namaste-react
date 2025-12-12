@@ -13,6 +13,8 @@ const Restaurants = () => {
     setFilteredRestaurents,
   ] = useFetchRestaurents();
 
+  console.log(listOfRestaurents);
+
   const topRatedRestaurents = listOfRestaurents.filter(
     (res) => res.info.avgRating > 4
   );
