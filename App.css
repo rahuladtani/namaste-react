@@ -45,4 +45,17 @@
 /* Fake Restaurents */
 .fake-res-card {
   text-decoration: none;
+  overflow: hidden;
+  border-radius: 15px;
+}
+.fake-res-card img {
+  height: 200px;
+  object-fit: cover;
+}
+.parking-label {
+  position: absolute;
+  z-index: 1;
+  right: 10px;
+  top: 5px;
+  font-size: 10px;
 }
