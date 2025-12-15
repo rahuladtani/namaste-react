@@ -7,6 +7,7 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router";
 import About from "./components/About";
 import Error from "./components/Error";
 import RestaurentDetails from "./components/RestaurentDetails";
+import FakeRestaurents from "./components/FakeRestaurents";
 // import Grocery from "./components/Grocery";
 
 // Chunking, Code splitting, Dynamic Bundling, lazy loading
@@ -45,6 +46,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/restaurentdetails/:resId",
         element: <RestaurentDetails />,
+      },
+      {
+        path: "/fakerestaurents",
+        element: <FakeRestaurents />,
       },
     ],
     errorElement: <Error />,

@@ -33,18 +33,8 @@ const Header = () => {
               <Link to="/grocery" className="nav-link">
                 Grocery
               </Link>
-              <NavDropdown title="Link" id="navbarScrollingDropdown">
-                <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-                <NavDropdown.Item href="#action4">
-                  Another action
-                </NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#action5">
-                  Something else here
-                </NavDropdown.Item>
-              </NavDropdown>
-              <Link className="nav-link" href="#" disabled>
-                Link
+              <Link to="/fakerestaurents" className="nav-link">
+                Fake Restaurents
               </Link>
             </Nav>
 

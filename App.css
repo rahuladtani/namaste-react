@@ -41,3 +41,8 @@
   background-color: #ddd;
   height: 37.6px;
 }
+
+/* Fake Restaurents */
+.fake-res-card {
+  text-decoration: none;
+}
