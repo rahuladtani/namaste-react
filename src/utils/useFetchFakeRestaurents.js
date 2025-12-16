@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 const useFetchFakeRestaurents = () => {
   const [fakeRestaurents, setFakeRestaurents] = useState([]);
+  const [filterFakeRestaurents, setFilterFakeRestaurents] = useState([]);
   useEffect(() => {
     fetchData();
   }, []);
@@ -13,7 +14,8 @@ const useFetchFakeRestaurents = () => {
     const json = await data.json();
     console.log(json);
     setFakeRestaurents(json);
+    setFilterFakeRestaurents(json);
   };
-  return fakeRestaurents;
+  return [fakeRestaurents, filterFakeRestaurents, setFilterFakeRestaurents];
 };
 export default useFetchFakeRestaurents;
