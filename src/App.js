@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "./components/Header";
@@ -9,16 +9,31 @@ import Error from "./components/Error";
 import RestaurentDetails from "./components/RestaurentDetails";
 import FakeRestaurents from "./components/FakeRestaurents";
 import FakeRestaurentDetails from "./components/FakeRestaurentDetails";
+import UserContext from "./utils/UserContext";
 // import Grocery from "./components/Grocery";
 
 // Chunking, Code splitting, Dynamic Bundling, lazy loading
 const Grocery = lazy(() => import("./components/Grocery"));
 
 const App = () => {
+  const [userInfo, setUserInfo] = useState();
+
+  useEffect(() => {
+    // Make an API call
+    const data = {
+      name: "Rahul Adtani",
+    };
+    setUserInfo(data.name);
+  }, []);
+
   return (
     <>
-      <Header />
-      <Outlet />
+      <UserContext.Provider value={{ loggedInUser: userInfo }}>
+        <>
+          <Header />
+          <Outlet />
+        </>
+      </UserContext.Provider>
     </>
   );
 };
