@@ -39,14 +39,13 @@ const FakeRestaurents = () => {
                   onChange={(e) => setSearchByType(e.target.value)}
                 >
                   <option>Search by Type</option>
-                  {fakeRestaurents.map((restaurent) => (
-                    <option
-                      value={restaurent.type}
-                      key={restaurent.restaurantID}
-                    >
-                      {restaurent.type}
-                    </option>
-                  ))}
+                  {[...new Set(fakeRestaurents.map((r) => r.type))].map(
+                    (type) => (
+                      <option value={type} key={type}>
+                        {type}
+                      </option>
+                    )
+                  )}
                 </select>
                 <button
                   className="btn btn-primary"
