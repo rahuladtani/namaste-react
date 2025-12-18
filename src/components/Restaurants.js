@@ -2,9 +2,10 @@ import Container from "react-bootstrap/Container";
 import { Col, Row } from "react-bootstrap";
 import RestaurentItem from "./RestaurentItem";
 import ResList from "../utils/restaurents";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import RestaurentSkeleton from "./RestaurentSkeleton";
 import useFetchRestaurents from "../utils/useFetchRestaurents";
+import UserContext from "../utils/UserContext";
 
 const Restaurants = () => {
   const [
@@ -20,6 +21,8 @@ const Restaurants = () => {
   );
 
   const [searchValue, setSearchValue] = useState("");
+
+  const { loggedInUser, setUserInfo } = useContext(UserContext);
 
   return (
     <>
@@ -60,6 +63,15 @@ const Restaurants = () => {
                 >
                   Top Rated Restaurents
                 </button>
+              </Col>
+              <Col lg={3}>
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="User Name"
+                  value={loggedInUser}
+                  onChange={(e) => setUserInfo(e.target.value)}
+                />
               </Col>
             </Row>
 
