@@ -10,6 +10,9 @@ import RestaurentDetails from "./components/RestaurentDetails";
 import FakeRestaurents from "./components/FakeRestaurents";
 import FakeRestaurentDetails from "./components/FakeRestaurentDetails";
 import UserContext from "./utils/UserContext";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
+import CartPage from "./components/CartPage";
 // import Grocery from "./components/Grocery";
 
 // Chunking, Code splitting, Dynamic Bundling, lazy loading
@@ -28,12 +31,14 @@ const App = () => {
 
   return (
     <>
-      <UserContext.Provider value={{ loggedInUser: userInfo, setUserInfo }}>
-        <>
-          <Header />
-          <Outlet />
-        </>
-      </UserContext.Provider>
+      <Provider store={appStore}>
+        <UserContext.Provider value={{ loggedInUser: userInfo, setUserInfo }}>
+          <>
+            <Header />
+            <Outlet />
+          </>
+        </UserContext.Provider>
+      </Provider>
     </>
   );
 };
@@ -70,6 +75,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/fakerestaurentdetails/:resId",
         element: <FakeRestaurentDetails />,
+      },
+      {
+        path: "/cart",
+        element: <CartPage />,
       },
     ],
     errorElement: <Error />,
